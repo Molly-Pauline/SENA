@@ -1,0 +1,182 @@
+import math
+
+
+class Triangulo:
+    def __init__(self, a, b, c, base, altura):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.base = base
+        self.altura = altura
+
+    def perimetro(self):
+        return self.a + self.b + self.c
+
+    def area(self):
+        return (self.base * self.altura) / 2
+
+
+class Rectangulo:
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+
+    def perimetro(self):
+        return 2 * (self.base + self.altura)
+
+    def area(self):
+        return self.base * self.altura
+
+
+class Circulo:
+    def __init__(self, radio):
+        self.radio = radio
+
+    def circunferencia(self):
+        return 2 * math.pi * self.radio
+
+    def area(self):
+        return math.pi * self.radio ** 2
+
+
+class Cubo:
+    def __init__(self, lado):
+        self.lado = lado
+
+    def area(self):
+        return 6 * (self.lado ** 2)
+
+    def volumen(self):
+        return self.lado ** 3
+
+
+class Esfera:
+    def __init__(self, radio):
+        self.radio = radio
+
+    def area(self):
+        return 4 * math.pi * (self.radio ** 2)
+
+    def volumen(self):
+        return (4/3) * math.pi * (self.radio ** 3)
+
+
+class Piramide:
+    def __init__(self, base, altura, area_lateral):
+        self.base = base
+        self.altura = altura
+        self.area_lateral = area_lateral
+
+    def area(self):
+        return self.base + self.area_lateral
+
+    def volumen(self):
+        return (self.base * self.altura) / 3
+
+
+while True:
+    print("\nCALCULADORA DE ÁREAS, PERÍMETROS Y VOLÚMENES")
+    print("1. Triángulo")
+    print("2. Rectángulo")
+    print("3. Círculo")
+    print("4. Cubo")
+    print("5. Esfera")
+    print("6. Pirámide")
+    print("7. Salir")
+
+    opcion = int(input("\nSeleccione una figura geométrica: "))
+
+    # TRIÁNGULO
+    if opcion == 1:
+        print("\n1. Área\n2. Perímetro")
+        op = int(input("Seleccione la opcion a calcular: "))
+
+        if op == 1:
+            base = float(input("Base: "))
+            altura = float(input("Altura: "))
+            t = Triangulo(0, 0, 0, base, altura)
+            print("Área del triángulo:", t.area())
+
+        elif op == 2:
+            a = float(input("Lado A: "))
+            b = float(input("Lado B: "))
+            c = float(input("Lado C: "))
+            t = Triangulo(a, b, c, 0, 0)
+            print("Perímetro del triángulo:", t.perimetro())
+
+    # RECTÁNGULO
+    elif opcion == 2:
+        print("\n1. Área\n2. Perímetro")
+        op = int(input("Seleccione la opcion a calcula: "))
+
+        base = float(input("Base: "))
+        altura = float(input("Altura: "))
+        r = Rectangulo(base, altura)
+
+        if op == 1:
+            print("Área del rectángulo:", r.area())
+        else:
+            print("Perímetro del rectángulo:", r.perimetro())
+
+    # CÍRCULO
+    elif opcion == 3:
+        print("\n1. Área\n2. Circunferencia")
+        op = int(input("Seleccione la opcion a calcular: "))
+
+        radio = float(input("Radio: "))
+        c = Circulo(radio)
+
+        if op == 1:
+            print("Área del círculo:", c.area())
+        else:
+            print("Circunferencia del círculo:", c.circunferencia())
+
+    # CUBO
+    elif opcion == 4:
+        print("\n1. Área\n2. Volumen")
+        op = int(input("Seleccione la opcion a calcular: "))
+
+        lado = float(input("Lado: "))
+        cubo = Cubo(lado)
+
+        if op == 1:
+            print("Área del cubo:", cubo.area())
+        else:
+            print("Volumen del cubo:", cubo.volumen())
+
+    # ESFERA
+    elif opcion == 5:
+        print("\n1. Área\n2. Volumen")
+        op = int(input("Seleccione operación: "))
+
+        radio = float(input("Radio: "))
+        esfera = Esfera(radio)
+
+        if op == 1:
+            print("Área de la esfera:", esfera.area())
+        else:
+            print("Volumen de la esfera:", esfera.volumen())
+
+    # PIRÁMIDE
+    elif opcion == 6:
+        print("\n1. Área\n2. Volumen")
+        op = int(input("Seleccione operación: "))
+
+        base = float(input("Área de la base: "))
+        altura = float(input("Altura: "))
+
+        if op == 1:
+            area_lateral = float(input("Área lateral: "))
+            p = Piramide(base, altura, area_lateral)
+            print("Área de la pirámide:", p.area())
+
+        else:
+            p = Piramide(base, altura, 0)
+            print("Volumen de la pirámide:", p.volumen())
+
+    elif opcion == 7:
+        print("\nPrograma finalizado.")
+        break
+
+    else:
+        print("Opción inválida.")
